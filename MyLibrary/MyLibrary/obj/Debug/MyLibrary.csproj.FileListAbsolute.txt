@@ -1,0 +1,20 @@
+C:\Users\oscar\OneDrive\桌面\早著先機\MyLibrary\MyLibrary\bin\Debug\MyLibrary.dll
+C:\Users\oscar\OneDrive\桌面\早著先機\MyLibrary\MyLibrary\bin\Debug\MyLibrary.pdb
+C:\Users\oscar\OneDrive\桌面\早著先機\MyLibrary\MyLibrary\bin\Debug\Microsoft.Analytics.Interfaces.dll
+C:\Users\oscar\OneDrive\桌面\早著先機\MyLibrary\MyLibrary\bin\Debug\Microsoft.Analytics.Interfaces.Streaming.dll
+C:\Users\oscar\OneDrive\桌面\早著先機\MyLibrary\MyLibrary\bin\Debug\Microsoft.Analytics.Types.dll
+C:\Users\oscar\OneDrive\桌面\早著先機\MyLibrary\MyLibrary\obj\Debug\MyLibrary.csproj.AssemblyReference.cache
+C:\Users\oscar\OneDrive\桌面\早著先機\MyLibrary\MyLibrary\obj\Debug\MyLibrary.csproj.CoreCompileInputs.cache
+C:\Users\oscar\OneDrive\桌面\早著先機\MyLibrary\MyLibrary\obj\Debug\MyLibrary.csproj.CopyComplete
+C:\Users\oscar\OneDrive\桌面\早著先機\MyLibrary\MyLibrary\obj\Debug\MyLibrary.dll
+C:\Users\oscar\OneDrive\桌面\早著先機\MyLibrary\MyLibrary\obj\Debug\MyLibrary.pdb
+D:\Visual Studio\早著先機\MyLibrary\MyLibrary\bin\Debug\MyLibrary.dll
+D:\Visual Studio\早著先機\MyLibrary\MyLibrary\bin\Debug\MyLibrary.pdb
+D:\Visual Studio\早著先機\MyLibrary\MyLibrary\bin\Debug\Microsoft.Analytics.Interfaces.dll
+D:\Visual Studio\早著先機\MyLibrary\MyLibrary\bin\Debug\Microsoft.Analytics.Interfaces.Streaming.dll
+D:\Visual Studio\早著先機\MyLibrary\MyLibrary\bin\Debug\Microsoft.Analytics.Types.dll
+D:\Visual Studio\早著先機\MyLibrary\MyLibrary\obj\Debug\MyLibrary.csproj.AssemblyReference.cache
+D:\Visual Studio\早著先機\MyLibrary\MyLibrary\obj\Debug\MyLibrary.csproj.CoreCompileInputs.cache
+D:\Visual Studio\早著先機\MyLibrary\MyLibrary\obj\Debug\MyLibrary.csproj.CopyComplete
+D:\Visual Studio\早著先機\MyLibrary\MyLibrary\obj\Debug\MyLibrary.dll
+D:\Visual Studio\早著先機\MyLibrary\MyLibrary\obj\Debug\MyLibrary.pdb

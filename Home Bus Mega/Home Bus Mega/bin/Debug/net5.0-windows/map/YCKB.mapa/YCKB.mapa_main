@@ -1,0 +1,55 @@
+YCKB
+1107 606
+
+#button
+1
+1000 141
+6.75
+25
+
+2
+1010 94
+6.75
+25
+
+10
+1016 181
+6.75
+25
+*end
+
+#stop list
+1
+定富街
+Ting Fu Street
+
+2
+定富街
+Ting Fu Street
+
+10
+順業街
+Shun Yip Street
+
+10
+順業街
+Shun Yip Street
+
+10
+順業街
+Shun Yip Street
+
+10
+順業街
+Shun Yip Street
+
+10
+順業街
+Shun Yip Street
+
+10
+順業街
+Shun Yip Street
+*end
+
+#district list

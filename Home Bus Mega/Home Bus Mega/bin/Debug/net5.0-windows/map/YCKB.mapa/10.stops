@@ -1,0 +1,37 @@
+#stop
+CTB
+003592
+順業街, 偉業街
+Shun Yip Street, Wai Yip Street
+
+#route
+78X
+inbound
+粉嶺皇后山
+Queen's Hill Fanling
+
+797
+inbound
+日出康城
+LOHAS Park
+*end stop
+
+#stop
+KMB
+5D8FCEF2915882FD
+觀塘順業街
+SHUN YIP STREET, KWUN TONG
+
+#route
+15A
+inbound
+1
+平田
+PING TIN
+
+215X
+inbound
+1
+平田
+PING TIN
+*end stop

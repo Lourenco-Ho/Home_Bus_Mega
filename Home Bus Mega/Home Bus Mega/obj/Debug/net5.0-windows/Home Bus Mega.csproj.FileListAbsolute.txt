@@ -1,0 +1,44 @@
+C:\Users\oscar\OneDrive\桌面\早著先機\Home Bus Mega\Home Bus Mega\bin\Debug\net5.0-windows\Home Bus Mega.exe
+C:\Users\oscar\OneDrive\桌面\早著先機\Home Bus Mega\Home Bus Mega\bin\Debug\net5.0-windows\Home Bus Mega.deps.json
+C:\Users\oscar\OneDrive\桌面\早著先機\Home Bus Mega\Home Bus Mega\bin\Debug\net5.0-windows\Home Bus Mega.runtimeconfig.json
+C:\Users\oscar\OneDrive\桌面\早著先機\Home Bus Mega\Home Bus Mega\bin\Debug\net5.0-windows\Home Bus Mega.runtimeconfig.dev.json
+C:\Users\oscar\OneDrive\桌面\早著先機\Home Bus Mega\Home Bus Mega\bin\Debug\net5.0-windows\Home Bus Mega.dll
+C:\Users\oscar\OneDrive\桌面\早著先機\Home Bus Mega\Home Bus Mega\bin\Debug\net5.0-windows\ref\Home Bus Mega.dll
+C:\Users\oscar\OneDrive\桌面\早著先機\Home Bus Mega\Home Bus Mega\bin\Debug\net5.0-windows\Home Bus Mega.pdb
+C:\Users\oscar\OneDrive\桌面\早著先機\Home Bus Mega\Home Bus Mega\obj\Debug\net5.0-windows\Home Bus Mega.csproj.AssemblyReference.cache
+C:\Users\oscar\OneDrive\桌面\早著先機\Home Bus Mega\Home Bus Mega\obj\Debug\net5.0-windows\Home_Bus_Mega.MainForm.resources
+C:\Users\oscar\OneDrive\桌面\早著先機\Home Bus Mega\Home Bus Mega\obj\Debug\net5.0-windows\Home Bus Mega.csproj.GenerateResource.cache
+C:\Users\oscar\OneDrive\桌面\早著先機\Home Bus Mega\Home Bus Mega\obj\Debug\net5.0-windows\Home Bus Mega.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\oscar\OneDrive\桌面\早著先機\Home Bus Mega\Home Bus Mega\obj\Debug\net5.0-windows\Home Bus Mega.AssemblyInfoInputs.cache
+C:\Users\oscar\OneDrive\桌面\早著先機\Home Bus Mega\Home Bus Mega\obj\Debug\net5.0-windows\Home Bus Mega.AssemblyInfo.cs
+C:\Users\oscar\OneDrive\桌面\早著先機\Home Bus Mega\Home Bus Mega\obj\Debug\net5.0-windows\Home Bus Mega.csproj.CoreCompileInputs.cache
+C:\Users\oscar\OneDrive\桌面\早著先機\Home Bus Mega\Home Bus Mega\obj\Debug\net5.0-windows\Home Bus Mega.dll
+C:\Users\oscar\OneDrive\桌面\早著先機\Home Bus Mega\Home Bus Mega\obj\Debug\net5.0-windows\ref\Home Bus Mega.dll
+C:\Users\oscar\OneDrive\桌面\早著先機\Home Bus Mega\Home Bus Mega\obj\Debug\net5.0-windows\Home Bus Mega.pdb
+C:\Users\oscar\OneDrive\桌面\早著先機\Home Bus Mega\Home Bus Mega\obj\Debug\net5.0-windows\Home Bus Mega.genruntimeconfig.cache
+C:\Users\oscar\OneDrive\桌面\早著先機\Home Bus Mega\Home Bus Mega\obj\Debug\net5.0-windows\Home_Bus_Mega.Properties.Resources.resources
+C:\Users\oscar\OneDrive\桌面\早著先機\Home Bus Mega\Home Bus Mega\bin\Debug\net5.0-windows\MyLibrary.dll
+C:\Users\oscar\OneDrive\桌面\早著先機\Home Bus Mega\Home Bus Mega\bin\Debug\net5.0-windows\MyLibrary.pdb
+C:\Users\oscar\OneDrive\桌面\早著先機\Home Bus Mega\Home Bus Mega\obj\Debug\net5.0-windows\Home Bus Mega.csproj.CopyComplete
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Debug\net5.0-windows\Home Bus Mega.exe
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Debug\net5.0-windows\Home Bus Mega.deps.json
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Debug\net5.0-windows\Home Bus Mega.runtimeconfig.json
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Debug\net5.0-windows\Home Bus Mega.runtimeconfig.dev.json
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Debug\net5.0-windows\Home Bus Mega.dll
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Debug\net5.0-windows\ref\Home Bus Mega.dll
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Debug\net5.0-windows\Home Bus Mega.pdb
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Debug\net5.0-windows\MyLibrary.dll
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Debug\net5.0-windows\MyLibrary.pdb
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\obj\Debug\net5.0-windows\Home Bus Mega.csproj.AssemblyReference.cache
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\obj\Debug\net5.0-windows\Home_Bus_Mega.MainForm.resources
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\obj\Debug\net5.0-windows\Home_Bus_Mega.Properties.Resources.resources
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\obj\Debug\net5.0-windows\Home Bus Mega.csproj.GenerateResource.cache
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\obj\Debug\net5.0-windows\Home Bus Mega.GeneratedMSBuildEditorConfig.editorconfig
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\obj\Debug\net5.0-windows\Home Bus Mega.AssemblyInfoInputs.cache
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\obj\Debug\net5.0-windows\Home Bus Mega.AssemblyInfo.cs
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\obj\Debug\net5.0-windows\Home Bus Mega.csproj.CoreCompileInputs.cache
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\obj\Debug\net5.0-windows\Home Bus Mega.csproj.CopyComplete
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\obj\Debug\net5.0-windows\Home Bus Mega.dll
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\obj\Debug\net5.0-windows\ref\Home Bus Mega.dll
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\obj\Debug\net5.0-windows\Home Bus Mega.pdb
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\obj\Debug\net5.0-windows\Home Bus Mega.genruntimeconfig.cache
