@@ -32,6 +32,7 @@ namespace Home_Bus_Mega
         public int width, height;
         public List<Button> buttons = new List<Button>();
         public int mode = 1;
+        public bool is_eta_start = false;
 
 
         //internal value
@@ -155,17 +156,26 @@ namespace Home_Bus_Mega
                 }
 
                 //stop info
-                string company_code = fileRead[line_index];
-                string stop_id = fileRead[line_index + 1];
+                StringValue value_company_code = new StringValue
+                {
+                    Value = fileRead[line_index],
+                    Name = "value_company_code"
+                };
+                StringValue value_stop_id = new StringValue {
+                    Value = fileRead[line_index + 1],
+                    Name = "value_stop_id"
+                };
                 string stop_name_chi = fileRead[line_index + 2];
                 string stop_name_eng = fileRead[line_index + 3];
-                Panel panel_bus_stop = Panel_bus_stop(company_code, stop_id, stop_name_chi, stop_name_eng);
+                Panel panel_bus_stop = Panel_bus_stop(value_company_code.Value, value_stop_id.Value, stop_name_chi, stop_name_eng);
+                panel_bus_stop.Controls.Add(value_company_code);
+                panel_bus_stop.Controls.Add(value_stop_id);
                 flowLayoutPanel.Controls.Add(panel_bus_stop);
 
                 line_index = find_the_tag(line_index, "#route", fileRead.Skip(line_index).ToArray()) + 1;
                 while(line_index < file_length)
                 {
-                    if(company_code == "CTB")
+                    if(value_company_code.Value == "CTB")
                     {
                         string route_name = fileRead[line_index];
                         string direction = fileRead[line_index + 1];
@@ -182,7 +192,7 @@ namespace Home_Bus_Mega
                             line_index += 5;
                         }
                     }
-                    else if (company_code == "KMB")
+                    else if (value_company_code.Value == "KMB")
                     {
                         // remember the value
                         IntValue value_file_line_index = new IntValue
@@ -208,7 +218,7 @@ namespace Home_Bus_Mega
                         string dest_name_chi = fileRead[line_index + 3];
                         string dest_name_eng = fileRead[line_index + 4];
 
-                        PictureBox icon = Label_bus_icon(Bus_Route.is_LWB_route(company_code)? "LWB":"KMB", value_route_name.Value);
+                        PictureBox icon = Label_bus_icon(Bus_Route.is_LWB_route(value_company_code.Value)? "LWB":"KMB", value_route_name.Value);
                         Panel panel_route_box = Panel_route_box(icon, value_route_name.Value, dest_name_chi, dest_name_eng);
                         panel_bus_stop.Controls.Add(panel_route_box);
 
@@ -229,6 +239,7 @@ namespace Home_Bus_Mega
 
                 FitTheScreen.Resize(panel_bus_stop, 1280);
                 FitTheScreen.Resize_Child(panel_bus_stop, 1280);
+                is_eta_start = true;
             }
         }
 
@@ -514,7 +525,8 @@ namespace Home_Bus_Mega
             flowLayoutPanel.Size = new Size(640, 571);
             flowLayoutPanel.TabIndex = 7;
             flowLayoutPanel.WrapContents = false;
-            flowLayoutPanel.BackColor = App_Colors.Eta_bg;
+            //flowLayoutPanel.BackColor = App_Colors.Eta_bg;
+            flowLayoutPanel.BackColor = Color.Transparent;
             // 
             // panel1
             // 
@@ -559,6 +571,7 @@ namespace Home_Bus_Mega
             label_eng_name.Name = "eng_name";
             label_eng_name.Size = new Size(550, 24);
             label_eng_name.Text = stop_name_eng; //**
+            //label_eng_name.AutoSize = false;
             // 
             // stop_box
             // 
@@ -568,17 +581,18 @@ namespace Home_Bus_Mega
             stop_box.Controls.Add(icon);
             stop_box.Controls.Add(label_chi_name);
             stop_box.Location = new Point(0, 0);
-            stop_box.Name = stop_id; //**
+            stop_box.Name = "stop box";
             stop_box.Size = new Size(623, 84);
             //
             // panel
             //
-            Panel panel = new Panel();
+            Panel panel = new Panel
+            {
+                Location = new Point(0, 0),
+                Name = "big stop box", //**
+                Size = new Size(stop_box.Width, stop_box.Height)
+            };
             panel.Controls.Add(stop_box);
-            panel.Location = new Point(0, 0);
-            panel.Name = company_code; //**
-            //panel.Size = stop_box.Size;
-            panel.Size = new Size(stop_box.Width, stop_box.Height);
             panel.ControlAdded += Panel_ControlAdded;
 
             return panel;
@@ -587,8 +601,11 @@ namespace Home_Bus_Mega
         private void Panel_ControlAdded(object sender, ControlEventArgs e)
         {
             Panel panel = sender as Panel;
-            e.Control.Location = new Point(0, 84 + 74 * (panel.Controls.Count - 2));
-            panel.Size = new(panel.Width, panel.Height + 74);
+            e.Control.Location = new Point(0, panel.Height);
+            if (e.Control is Panel)
+            {
+                panel.Size = new(panel.Width, panel.Height + e.Control.Height);
+            }
         }
 
         private Panel Panel_route_box(PictureBox icon, string route_name, string dest_name_chi, string dest_name_eng, string service_type = null)
@@ -600,7 +617,7 @@ namespace Home_Bus_Mega
             label_chi_name.Font = new Font("微軟正黑體", 23.25F, FontStyle.Bold, GraphicsUnit.Point, 136);
             label_chi_name.Location = new Point(118, 10);
             label_chi_name.Name = "label_chi_name";
-            label_chi_name.Size = new Size(550, 39);
+            label_chi_name.Size = new Size(315, 39);
             label_chi_name.Text = dest_name_chi; //**
             label_chi_name.ForeColor = App_Colors.Text_blue;
             label_chi_name.BackColor = Color.Transparent;
@@ -611,27 +628,210 @@ namespace Home_Bus_Mega
             label_eng_name.Font = new Font(ENG_FONT_NAME, 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label_eng_name.Location = new Point(118, 50);
             label_eng_name.Name = "eng_name";
-            label_eng_name.Size = new Size(550, 24);
+            label_eng_name.Size = new Size(315, 24);
             label_eng_name.Text = dest_name_eng; //**
             label_eng_name.ForeColor = App_Colors.Text_blue;
             label_eng_name.BackColor = Color.Transparent;
+            FitTheScreen.Resize_Label_Height(label_eng_name);
+            //
+            //ETA box
+            //
+            Panel eta_panel = new Panel
+            {
+                Location = new Point(433, 0), //623 - 140 - 50
+                Name = "eta box", //**
+                Size = new Size(152, 70),
+                BackColor = Color.Transparent
+            };
+
+            Label label_eta_min_1 = new Label
+            {
+                Font = new Font("Arial Narrow", 42.25F, FontStyle.Bold, GraphicsUnit.Point, 136),
+                TextAlign = ContentAlignment.TopRight,
+                Location = new Point(-15, 0),
+                Name = "eta 1",
+                Size = new Size(80, 70),
+                Text = "88", //**
+                ForeColor = App_Colors.Text_blue,
+                BackColor = Color.Transparent,
+            };
+            eta_panel.Controls.Add(label_eta_min_1);
+
+            Label label_eta_min_1_chi = new Label
+            {
+                Font = new Font("微軟正黑體", 9.25F, FontStyle.Bold, GraphicsUnit.Point, 136),
+                TextAlign = ContentAlignment.TopLeft,
+                Location = new Point(47, 28),
+                Name = "eta 1 chi",
+                Size = new Size(25, 21),
+                Text = "分", //**
+                ForeColor = App_Colors.Text_blue,
+                BackColor = Color.Transparent,
+            };
+
+            Label label_eta_min_1_eng = new Label
+            {
+                Font = new Font("Arial Narrow", 9.25F, FontStyle.Bold, GraphicsUnit.Point, 136),
+                TextAlign = ContentAlignment.TopLeft,
+                Location = new Point(47, 43),
+                Name = "eta 1 eng",
+                Size = new Size(25, 21),
+                Text = "min", //**
+                ForeColor = App_Colors.Text_blue,
+                BackColor = Color.Transparent,
+            };
+            eta_panel.Controls.Add(label_eta_min_1_chi);
+            eta_panel.Controls.Add(label_eta_min_1_eng);
+            label_eta_min_1_chi.BringToFront();
+            label_eta_min_1_eng.BringToFront();
+
+            Label label_eta_min_2 = new Label
+            {
+                Font = new Font("Arial Narrow", 42.25F, FontStyle.Bold, GraphicsUnit.Point, 136),
+                TextAlign = ContentAlignment.TopRight,
+                Location = new Point(65, 0),
+                Name = "eta 2",
+                Size = new Size(80, 70),
+                Text = "88", //**
+                ForeColor = App_Colors.Text_blue,
+                BackColor = Color.Transparent,
+            };
+            eta_panel.Controls.Add(label_eta_min_2);
+
+            Label label_eta_min_2_chi = new Label
+            {
+                Font = new Font("微軟正黑體", 9.25F, FontStyle.Bold, GraphicsUnit.Point, 136),
+                TextAlign = ContentAlignment.TopLeft,
+                Location = new Point(127, 28),
+                Name = "eta 2 chi",
+                Size = new Size(25, 21),
+                Text = "分", //**
+                ForeColor = App_Colors.Text_blue,
+                BackColor = Color.Transparent,
+            };
+
+            Label label_eta_min_2_eng = new Label
+            {
+                Font = new Font("Arial Narrow", 9.25F, FontStyle.Bold, GraphicsUnit.Point, 136),
+                TextAlign = ContentAlignment.TopLeft,
+                Location = new Point(127, 43),
+                Name = "eta 2 eng",
+                Size = new Size(25, 21),
+                Text = "min", //**
+                ForeColor = App_Colors.Text_blue,
+                BackColor = Color.Transparent,
+            };
+            eta_panel.Controls.Add(label_eta_min_2_chi);
+            eta_panel.Controls.Add(label_eta_min_2_eng);
+            label_eta_min_2_chi.BringToFront();
+            label_eta_min_2_eng.BringToFront();
             // 
             // stop_box
             // 
-            Panel panel = new Panel();
-            panel.BackColor = App_Colors.Eta_bg;
+            Panel panel = new Panel {
+                Location = new Point(0, 0),
+                Name = "route box", //**
+                Size = new Size(623, 50 + (label_eng_name.Height < 24 ? 24:label_eng_name.Height)),
+                BackColor = App_Colors.Eta_bg
+            };
             panel.Controls.Add(label_eng_name);
             panel.Controls.Add(icon);
             panel.Controls.Add(label_chi_name);
-            panel.Location = new Point(0, 0);
-            panel.Name = "hello"; //**
-            panel.Size = new Size(623, 74);
+            panel.Controls.Add(eta_panel);
 
             
             return panel;
         }
 
-        
+        public Panel Panel_ETA_Box_No_Route()
+        {
+            //
+            //ETA box
+            //
+            Panel eta_panel = new Panel
+            {
+                Location = new Point(433, 0), //623 - 140 - 50
+                Name = "eta box sp", //**
+                Size = new Size(152, 70),
+                BackColor = Color.Transparent
+            };
+
+            Label label_chi = new Label
+            {
+                Font = new Font("微軟正黑體", 9.25F, FontStyle.Bold, GraphicsUnit.Point, 136),
+                TextAlign = ContentAlignment.TopLeft,
+                Location = new Point(0, 28),
+                Name = "eta 1 chi",
+                Size = new Size(25, 21),
+                Text = "此站沒有此路線", //**
+                AutoSize = true,
+                ForeColor = Color.Red,
+                BackColor = Color.Transparent,
+            };
+
+            Label label_eng = new Label
+            {
+                Font = new Font("Arial Narrow", 9.25F, FontStyle.Bold, GraphicsUnit.Point, 136),
+                TextAlign = ContentAlignment.TopLeft,
+                Location = new Point(0, 43),
+                Name = "eta 1 eng",
+                Size = new Size(25, 21),
+                Text = "No this route at this stop", //**
+                AutoSize = true,
+                ForeColor = Color.Red,
+                BackColor = Color.Transparent,
+            };
+            eta_panel.Controls.Add(label_chi);
+            eta_panel.Controls.Add(label_eng);
+
+            return eta_panel;
+        }
+
+        public Panel Panel_ETA_Box_Remark(string chi_content, string eng_content)
+        {
+            //
+            //ETA box
+            //
+            Panel eta_panel = new Panel
+            {
+                Location = new Point(433, 0), //623 - 140 - 50
+                Name = "eta box sp", //**
+                Size = new Size(152, 70),
+                BackColor = Color.Transparent
+            };
+
+            Label label_chi = new Label
+            {
+                Font = new Font("微軟正黑體", 9.25F, FontStyle.Bold, GraphicsUnit.Point, 136),
+                TextAlign = ContentAlignment.TopLeft,
+                Location = new Point(0, 28),
+                Name = "eta 1 chi",
+                Size = new Size(25, 21),
+                Text = chi_content, //**
+                AutoSize = true,
+                ForeColor = App_Colors.Text_blue,
+                BackColor = Color.Transparent,
+            };
+
+            Label label_eng = new Label
+            {
+                Font = new Font("Arial Narrow", 9.25F, FontStyle.Bold, GraphicsUnit.Point, 136),
+                TextAlign = ContentAlignment.TopLeft,
+                Location = new Point(0, 43),
+                Name = "eta 1 eng",
+                Size = new Size(25, 21),
+                Text = eng_content, //**
+                AutoSize = true,
+                ForeColor = App_Colors.Text_blue,
+                BackColor = Color.Transparent,
+            };
+            eta_panel.Controls.Add(label_chi);
+            eta_panel.Controls.Add(label_eng);
+
+            return eta_panel;
+        }
+
+
 
 
         //bus icon
