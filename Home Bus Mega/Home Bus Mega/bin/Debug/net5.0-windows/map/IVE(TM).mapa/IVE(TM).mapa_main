@@ -1,0 +1,107 @@
+IVE(TM)
+1107 606
+
+#button
+1
+86 169
+6.75
+25
+
+2
+236 255
+6.75
+25
+
+3
+499 225
+6.75
+25
+
+4
+477 258
+6.75
+25
+
+5
+607 225
+6.75
+25
+
+6
+985 225
+6.75
+25
+
+7
+985 258
+6.75
+25
+
+8
+724 420
+6.75
+25
+
+9
+658 582
+6.75
+25
+
+10
+703 562
+6.75
+25
+
+11
+956 47
+6.75
+25
+*end
+
+#stop list
+1
+輕鐵青山村站
+LRT Tsing Shan Tsuen Stop
+
+2
+聖彼得堂
+St. Peter Church
+
+3
+青雲站
+Tsing Wun Station
+
+4
+青雲站
+Tsing Wun Station
+
+5
+輕鐵青雲站
+LRT Tsing Wun Stop
+
+6
+鳴琴站
+Ming Kum Station
+
+7
+鳴琴站
+Ming Kum Station
+
+8
+輕鐵建安站
+LRT Kin On Stop
+
+9
+屯門消防局
+Tuen Mun Fire Station
+
+10
+屯門消防局
+Tuen Mun Fire Station
+
+11
+輕鐵山景南站
+LRT Shan King (South) Station
+*end
+
+#district list

@@ -1,0 +1,76 @@
+#stop
+KMB
+F4C9995BB455AB46
+鳴琴站
+MING KUM STATION
+
+#route
+A34
+outbound
+1
+機場(地面運輸中心)
+AIRPORT (GROUND TRANSPORTATION CENTRE)
+
+E33P
+outbound
+1
+機場(地面運輸中心)
+AIRPORT (GROUND TRANSPORTATION CENTRE)
+*end stop
+
+
+#stop
+KMB
+D09590C6061D9FE7
+鳴琴站
+MING KUM STATION
+
+#route
+57M
+outbound
+1
+荔景(北)
+LAI KING (NORTH)
+
+66M
+outbound
+1
+荃灣(如心廣場)
+TSUEN WAN (NINA TOWER)
+*end stop
+
+
+#stop
+KMB
+B3CCA98CC6CE7C8C
+鳴琴站
+MING KUM STATION
+
+#route
+258D
+outbound
+1
+藍田站
+LAM TIN STATION
+
+961
+outbound
+1
+灣仔(會展)
+Wan Chai (HKCECE)
+*end stop
+
+
+#stop
+CTB
+003216
+輕鐵鳴琴站, 鳴琴路
+LR Ming Kum Stop, Ming Kum Road
+
+#route
+50M
+outbound
+12
+屯門站
+Tuen Mun Station
+*end stop

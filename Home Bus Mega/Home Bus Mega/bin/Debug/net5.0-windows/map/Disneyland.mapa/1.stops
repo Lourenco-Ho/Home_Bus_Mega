@@ -1,0 +1,80 @@
+#stop
+CTB
+002658
+迪士尼樂園
+Disneyland
+
+#route
+B5
+outbound
+2
+欣澳站
+Sunny Bay Station
+
+B5
+inbound
+2
+港珠澳大橋香港口岸
+Hong Kong-Zhuhai-Macao Bridge Hong Kong Port
+
+R8
+outbound
+1
+青嶼幹線巴士轉乘站
+Lantau Link Bus-Bus Interchange
+*end stop
+
+#stop
+KMB
+E0A5FA73176D78A8
+迪士尼樂園巴士總站
+DISNEYLAND BUS TERMINUS
+
+#route
+R8
+outbound
+1
+青嶼幹線轉車站(循環線)
+Lantau Link BBI (Circular)
+*end stop
+
+#stop
+KMB
+E3E26EC8322AC889
+迪士尼樂園巴士總站
+DISNEYLAND BUS TERMINUS
+
+#route
+R33
+outbound
+1
+屯門站
+TUEN MUN STATION
+*end stop
+
+#stop
+KMB
+6C5D3C3EEFF28EE6
+迪士尼樂園巴士總站
+DISNEYLAND BUS TERMINUS
+
+#route
+R42
+outbound
+1
+大圍站
+TAI WAI STATION
+*end stop
+
+
+#stop
+NLB
+328
+迪士尼樂園
+Disneyland
+
+#route
+36 , 102
+東涌達東路巴士總站
+Tung Chung Tat Tung Road Bus Terminus
+*end stop

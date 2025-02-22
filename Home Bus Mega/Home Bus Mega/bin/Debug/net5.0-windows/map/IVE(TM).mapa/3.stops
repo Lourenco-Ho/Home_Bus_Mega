@@ -1,0 +1,75 @@
+#stop
+KMB
+D010FF7CF77383B7
+青雲站
+TSING WUN STATION
+
+#route
+66M
+inbound
+1
+屯門(大興邨)
+TUEN MUN (TAI HING ESTATE)
+
+66X
+inbound
+1
+屯門(大興邨)
+TUEN MUN (TAI HING ESTATE)
+
+258D
+inbound
+1
+屯門(寶田邨)
+TUEN MUN (PO TIN ESTATE)
+
+258X
+inbound
+1
+屯門(寶田邨)
+TUEN MUN (PO TIN ESTATE)
+*end stop
+
+
+#stop
+KMB
+5051A4FF380B1502
+青雲站
+TSING WUN STATION
+
+#route
+A34
+inbound
+1
+洪水橋(洪元路)
+HUNG SHUI KIU (HUNG YUEN ROAD)
+
+E33P
+inbound
+1
+兆康站(南)
+SIU HONG STATION (SOUTH)
+*end stop
+
+#stop
+MTRB
+Nil
+輕鐵青雲站
+LR Tsing Wun Stop
+
+#route
+506
+U060
+兆麟
+Siu Lun
+
+K52
+nD170
+悅湖山莊
+Yuet Wu Villa
+
+K52A
+D170
+屯門站
+Tuen Mun Station
+*end stop

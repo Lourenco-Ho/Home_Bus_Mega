@@ -1,0 +1,102 @@
+#stop
+CTB
+003757
+輕鐵鳴琴站, 鳴琴路
+LR Ming Kum Stop, Ming Kum Road
+
+#route
+50M
+inbound
+16
+屯門(和田邨)
+Tuen Mun (Wo Tin Estate)
+*end stop
+
+
+#stop
+KMB
+9E1FC92F86D2F4E3
+鳴琴站
+MING KUM STATION
+
+#route
+A34
+inbound
+1
+機場(地面運輸中心)
+AIRPORT (GROUND TRANSPORTATION CENTRE)
+
+E33P
+inbound
+1
+機場(地面運輸中心)
+AIRPORT (GROUND TRANSPORTATION CENTRE)
+*end stop
+
+
+#stop
+KMB
+F4D9335688592803
+鳴琴站
+MING KUM STATION
+
+#route
+66M
+inbound
+1
+屯門(大興邨)
+TUEN MUN (TAI HING ESTATE)
+
+66X
+inbound
+1
+屯門(大興邨)
+TUEN MUN (TAI HING ESTATE)
+
+258D
+inbound
+1
+屯門(寶田邨)
+TUEN MUN (PO TIN ESTATE)
+
+258X
+inbound
+1
+屯門(寶田邨)
+TUEN MUN (PO TIN ESTATE)
+*end stop
+
+
+#stop
+LRT
+200
+
+#route
+1
+610
+YLL
+
+1
+615
+YLL
+
+1
+615P
+SHL
+
+2
+505
+SAS
+
+2
+610
+FEP
+
+2
+615
+FEP
+
+2
+615P
+FEP
+*end stop

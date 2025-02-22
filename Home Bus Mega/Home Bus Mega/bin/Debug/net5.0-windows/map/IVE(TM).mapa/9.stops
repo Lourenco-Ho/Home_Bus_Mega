@@ -1,0 +1,64 @@
+#stop
+KMB
+7F4EB0203DF27B35
+屯門消防局
+TUEN MUN FIRE STATION
+
+#route
+57M
+inbound
+1
+屯門(山景邨)
+TUEN MUN (SHAN KING ESTATE)
+
+960B
+outbound
+1
+屯門(建生邨)
+TUEN MUN (KIN SANG ESTATE)
+
+961
+inbound
+1
+屯門(山景邨)
+TUEN MUN (SHAN KING ESTATE)
+*end stop
+
+
+#stop
+CTB
+003200
+屯門消防局, 杯渡路
+Tuen Mun Fire Station, Pui To Road
+
+#route
+50M
+inbound
+15
+屯門(和田邨)
+Tuen Mun (Wo Tin Estate)
+*end stop
+
+
+#stop
+MTRB
+Nil
+輕鐵建安站
+LR Kin On Stop
+
+#route
+506
+D050
+屯門碼頭
+Tuen Mun Ferry Pier
+
+K52
+nU150
+龍鼓灘
+Lung Kwu Tan
+
+K52A
+U020
+曾咀
+Tsang Tsui
+*end stop

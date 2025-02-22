@@ -1,0 +1,13 @@
+#stop
+LRT
+060
+
+#route
+1
+505
+SAS
+
+2
+505
+SHL
+*end stop

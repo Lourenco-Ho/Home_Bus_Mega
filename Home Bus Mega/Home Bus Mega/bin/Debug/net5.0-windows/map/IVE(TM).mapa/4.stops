@@ -1,0 +1,75 @@
+#stop
+KMB
+4FF70CD3938702E4
+青雲站
+TSING WUN STATION
+
+#route
+A34
+outbound
+1
+機場(地面運輸中心)
+AIRPORT (GROUND TRANSPORTATION CENTRE)
+
+E33P
+outbound
+1
+機場(地面運輸中心)
+AIRPORT (GROUND TRANSPORTATION CENTRE)
+*end stop
+
+#stop
+KMB
+1F5BF0C69F30C752
+青雲站
+TSING WUN STATION
+
+#route
+57M
+outbound
+1
+荔景(北)
+LAI KING (NORTH)
+
+66M
+outbound
+1
+荃灣(如心廣場)
+TSUEN WAN (NINA TOWER)
+
+66X
+outbound
+1
+奧運站
+OLYMPIC STATION
+
+258D
+outbound
+1
+藍田站
+LAM TIN STATION
+*end stop
+
+
+#stop
+MTRB
+Nil
+聖彼得堂
+SKH St. Peter's Church
+
+#route
+506
+D060
+屯門碼頭
+Tuen Mun Ferry Pier
+
+K52
+nU160
+龍鼓灘
+Lung Kwu Tan
+
+K52A
+U030
+曾咀
+Tsang Tsui
+*end stop

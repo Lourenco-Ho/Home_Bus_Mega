@@ -1,0 +1,11 @@
+#stop
+NLB
+221
+大澳
+Tai O
+
+#route
+1 , 2
+梅窩碼頭
+Mui Wo Ferry Pier
+*end stop

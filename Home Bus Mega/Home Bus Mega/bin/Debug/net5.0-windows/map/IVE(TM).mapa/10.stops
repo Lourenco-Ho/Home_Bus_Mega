@@ -1,0 +1,51 @@
+#stop
+CTB
+003217
+屯門消防局, 杯渡路
+Tuen Mun Fire Station, Pui To Road
+
+#route
+50M
+outbound
+13
+屯門站
+Tuen Mun Station
+*end stop
+
+#stop
+KMB
+490F1A302D8C32FC
+屯門消防局
+TUEN MUN FIRE STATION
+
+#route
+961
+outbound
+1
+灣仔(會展)
+Wan Chai (HKCECE)
+*end stop
+
+
+#stop
+MTRB
+Nil
+輕鐵建安站
+LR Kin On Stop
+
+#route
+506
+U070
+兆麟
+Siu Lun
+
+K52
+nD180
+悅湖山莊
+Yuet Wu Villa
+
+K52A
+D180
+屯門站
+Tuen Mun Station
+*end stop
