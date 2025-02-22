@@ -1,0 +1,14 @@
+D:\Visual Studio\早著先機\Home Bus Mega EXE\Home Bus Mega.pdb
+D:\Visual Studio\早著先機\Home Bus Mega EXE\clrcompression.dll
+D:\Visual Studio\早著先機\Home Bus Mega EXE\clrjit.dll
+D:\Visual Studio\早著先機\Home Bus Mega EXE\coreclr.dll
+D:\Visual Studio\早著先機\Home Bus Mega EXE\mscordaccore.dll
+D:\Visual Studio\早著先機\Home Bus Mega EXE\D3DCompiler_47_cor3.dll
+D:\Visual Studio\早著先機\Home Bus Mega EXE\PenImc_cor3.dll
+D:\Visual Studio\早著先機\Home Bus Mega EXE\PresentationNative_cor3.dll
+D:\Visual Studio\早著先機\Home Bus Mega EXE\vcruntime140_cor3.dll
+D:\Visual Studio\早著先機\Home Bus Mega EXE\wpfgfx_cor3.dll
+D:\Visual Studio\早著先機\Home Bus Mega EXE\sni.dll
+D:\Visual Studio\早著先機\Home Bus Mega EXE\SQLite.Interop.dll
+D:\Visual Studio\早著先機\Home Bus Mega EXE\MyLibrary.pdb
+D:\Visual Studio\早著先機\Home Bus Mega EXE\Home Bus Mega.exe
