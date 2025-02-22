@@ -1,0 +1,36 @@
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Release\net5.0-windows\Home Bus Mega.exe
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Release\net5.0-windows\Home Bus Mega.deps.json
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Release\net5.0-windows\Home Bus Mega.runtimeconfig.json
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Release\net5.0-windows\Home Bus Mega.runtimeconfig.dev.json
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Release\net5.0-windows\Home Bus Mega.dll
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Release\net5.0-windows\ref\Home Bus Mega.dll
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Release\net5.0-windows\Home Bus Mega.pdb
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Release\net5.0-windows\EntityFramework.SqlServer.dll
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Release\net5.0-windows\EntityFramework.dll
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Release\net5.0-windows\System.Data.SQLite.dll
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Release\net5.0-windows\System.Data.SqlClient.dll
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Release\net5.0-windows\System.Data.SQLite.EF6.dll
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Release\net5.0-windows\runtimes\win-arm64\native\sni.dll
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Release\net5.0-windows\runtimes\win-x64\native\sni.dll
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Release\net5.0-windows\runtimes\win-x86\native\sni.dll
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Release\net5.0-windows\runtimes\linux-x64\native\SQLite.Interop.dll
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Release\net5.0-windows\runtimes\osx-x64\native\SQLite.Interop.dll
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Release\net5.0-windows\runtimes\win-x64\native\SQLite.Interop.dll
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Release\net5.0-windows\runtimes\win-x86\native\SQLite.Interop.dll
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Release\net5.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Release\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Release\net5.0-windows\MyLibrary.dll
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\bin\Release\net5.0-windows\MyLibrary.pdb
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\obj\Release\net5.0-windows\Home Bus Mega.csproj.AssemblyReference.cache
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\obj\Release\net5.0-windows\Home_Bus_Mega.MainForm.resources
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\obj\Release\net5.0-windows\Home_Bus_Mega.Properties.Resources.resources
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\obj\Release\net5.0-windows\Home Bus Mega.csproj.GenerateResource.cache
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\obj\Release\net5.0-windows\Home Bus Mega.GeneratedMSBuildEditorConfig.editorconfig
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\obj\Release\net5.0-windows\Home Bus Mega.AssemblyInfoInputs.cache
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\obj\Release\net5.0-windows\Home Bus Mega.AssemblyInfo.cs
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\obj\Release\net5.0-windows\Home Bus Mega.csproj.CoreCompileInputs.cache
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\obj\Release\net5.0-windows\Home Bus Mega.csproj.CopyComplete
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\obj\Release\net5.0-windows\Home Bus Mega.dll
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\obj\Release\net5.0-windows\ref\Home Bus Mega.dll
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\obj\Release\net5.0-windows\Home Bus Mega.pdb
+D:\Visual Studio\早著先機\Home Bus Mega\Home Bus Mega\obj\Release\net5.0-windows\Home Bus Mega.genruntimeconfig.cache
