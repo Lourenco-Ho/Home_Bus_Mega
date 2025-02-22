@@ -25,6 +25,7 @@ namespace Home_Bus_Mega
             if (!route_name.StartsWith("SP"))
             {
                 if (route_name.StartsWith("A") ||
+                    route_name.StartsWith("E") ||
                     route_name.StartsWith("NA") ||
                     route_name.StartsWith("S") ||
                     LWB_non_A_routes.Contains(route_name))

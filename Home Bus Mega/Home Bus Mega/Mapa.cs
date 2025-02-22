@@ -156,6 +156,11 @@ namespace Home_Bus_Mega
                 }
 
                 //stop info
+                IntValue value_file_stop_line_index = new IntValue
+                {
+                    Value = line_index,
+                    Name = "value_file_line_index"
+                };
                 StringValue value_company_code = new StringValue
                 {
                     Value = fileRead[line_index],
@@ -165,9 +170,20 @@ namespace Home_Bus_Mega
                     Value = fileRead[line_index + 1],
                     Name = "value_stop_id"
                 };
-                string stop_name_chi = fileRead[line_index + 2];
-                string stop_name_eng = fileRead[line_index + 3];
+                string stop_name_chi, stop_name_eng;
+                if (value_company_code.Value == "LRT")
+                {
+                    string[] stop_name = MTR_database.Get_Station_Name_By_Station_ID(value_stop_id.Value);
+                    stop_name_chi = stop_name[0];
+                    stop_name_eng = stop_name[1];
+                }
+                else
+                {
+                    stop_name_chi = fileRead[line_index + 2];
+                    stop_name_eng = fileRead[line_index + 3];
+                }
                 Panel panel_bus_stop = Panel_bus_stop(value_company_code.Value, value_stop_id.Value, stop_name_chi, stop_name_eng);
+                panel_bus_stop.Controls.Add(value_file_stop_line_index);
                 panel_bus_stop.Controls.Add(value_company_code);
                 panel_bus_stop.Controls.Add(value_stop_id);
                 flowLayoutPanel.Controls.Add(panel_bus_stop);
@@ -175,27 +191,54 @@ namespace Home_Bus_Mega
                 line_index = find_the_tag(line_index, "#route", fileRead.Skip(line_index).ToArray()) + 1;
                 while(line_index < file_length)
                 {
-                    if(value_company_code.Value == "CTB")
+                    if (value_company_code.Value == "CTB")
                     {
-                        string route_name = fileRead[line_index];
-                        string direction = fileRead[line_index + 1];
-                        string dest_name_chi = fileRead[line_index + 2];
-                        string dest_name_eng = fileRead[line_index + 3];
+                        // remember the value
+                        IntValue value_file_route_line_index = new IntValue
+                        {
+                            Value = line_index,
+                            Name = "value_file_line_index"
+                        };
+                        StringValue value_route_name = new StringValue
+                        {
+                            Value = fileRead[line_index],
+                            Name = "value_route_name"
+                        };
+                        StringValue value_direction = new StringValue
+                        {
+                            Value = fileRead[line_index + 1],
+                            Name = "value_direction"
+                        };
+                        IntValue value_stop_seq = new IntValue
+                        {
+                            Value = int.Parse(fileRead[line_index + 2]),
+                            Name = "value_stop_seq"
+                        };
+                        string dest_name_chi = fileRead[line_index + 3];
+                        string dest_name_eng = fileRead[line_index + 4];
 
-                        Debug.WriteLine(route_name);
-                        if (fileRead[line_index + 4] == "*end stop")
+                        PictureBox icon = Label_bus_icon(Bus_Route.is_CTBA_route(value_company_code.Value) ? "CTBA" : "CTB", value_route_name.Value);
+                        Panel panel_route_box = Panel_route_box(icon, dest_name_chi, dest_name_eng);
+                        panel_bus_stop.Controls.Add(panel_route_box);
+
+                        panel_route_box.Controls.Add(value_file_route_line_index);
+                        panel_route_box.Controls.Add(value_route_name);
+                        panel_route_box.Controls.Add(value_direction);
+                        panel_route_box.Controls.Add(value_stop_seq);
+
+                        if (fileRead[line_index + 5] == "*end stop")
                         {
                             break;
                         }
                         else
                         {
-                            line_index += 5;
+                            line_index += 6;
                         }
                     }
                     else if (value_company_code.Value == "KMB")
                     {
                         // remember the value
-                        IntValue value_file_line_index = new IntValue
+                        IntValue value_file_route_line_index = new IntValue
                         {
                             Value = line_index,
                             Name = "value_file_line_index"
@@ -218,10 +261,11 @@ namespace Home_Bus_Mega
                         string dest_name_chi = fileRead[line_index + 3];
                         string dest_name_eng = fileRead[line_index + 4];
 
-                        PictureBox icon = Label_bus_icon(Bus_Route.is_LWB_route(value_company_code.Value)? "LWB":"KMB", value_route_name.Value);
-                        Panel panel_route_box = Panel_route_box(icon, value_route_name.Value, dest_name_chi, dest_name_eng);
+                        PictureBox icon = Label_bus_icon(Bus_Route.is_LWB_route(value_route_name.Value) ? "LWB" : "KMB", value_route_name.Value);
+                        Panel panel_route_box = Panel_route_box(icon, dest_name_chi, dest_name_eng);
                         panel_bus_stop.Controls.Add(panel_route_box);
 
+                        panel_route_box.Controls.Add(value_file_route_line_index);
                         panel_route_box.Controls.Add(value_route_name);
                         panel_route_box.Controls.Add(value_direction);
                         panel_route_box.Controls.Add(value_service_type);
@@ -233,6 +277,174 @@ namespace Home_Bus_Mega
                         else
                         {
                             line_index += 6;
+                        }
+                    }
+                    else if (value_company_code.Value == "LRT")
+                    {
+                        // remember the value
+                        IntValue value_file_route_line_index = new IntValue
+                        {
+                            Value = line_index,
+                            Name = "value_file_line_index"
+                        };
+                        StringValue value_platform_id = new StringValue
+                        {
+                            Value = fileRead[line_index],
+                            Name = "value_platform_id"
+                        };
+                        StringValue value_route_name = new StringValue
+                        {
+                            Value = fileRead[line_index + 1],
+                            Name = "value_route_name"
+                        };
+                        string[] dest_name = MTR_database.Get_Station_Name_By_Station_Code(fileRead[line_index + 2]);
+                        string dest_name_chi = dest_name[0];
+                        string dest_name_eng = dest_name[1];
+
+                        PictureBox icon = Label_bus_icon(value_company_code.Value, value_route_name.Value);
+                        Panel panel_route_box = Panel_route_box_LRT(icon, value_platform_id.Value, dest_name_chi, dest_name_eng);
+                        panel_bus_stop.Controls.Add(panel_route_box);
+
+                        panel_route_box.Controls.Add(value_file_route_line_index);
+                        panel_route_box.Controls.Add(value_platform_id);
+                        panel_route_box.Controls.Add(value_route_name);
+
+                        if (fileRead[line_index + 3] == "*end stop")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            line_index += 4;
+                        }
+                    }
+                    else if (value_company_code.Value == "MTRB")
+                    {
+                        // remember the value
+                        IntValue value_file_route_line_index = new IntValue
+                        {
+                            Value = line_index,
+                            Name = "value_file_line_index"
+                        };
+                        StringValue value_route_name = new StringValue
+                        {
+                            Value = fileRead[line_index],
+                            Name = "value_route_name"
+                        };
+                        StringValue value_mtrb_stop_id = new StringValue
+                        {
+                            Value = fileRead[line_index + 1],
+                            Name = "value_stop_id"
+                        };
+                        string dest_name_chi = fileRead[line_index + 2];
+                        string dest_name_eng = fileRead[line_index + 3];
+
+                        PictureBox icon = Label_bus_icon(value_company_code.Value, value_route_name.Value);
+                        Panel panel_route_box = Panel_route_box(icon, dest_name_chi, dest_name_eng);
+                        panel_bus_stop.Controls.Add(panel_route_box);
+
+                        panel_route_box.Controls.Add(value_file_route_line_index);
+                        panel_route_box.Controls.Add(value_mtrb_stop_id);
+                        panel_route_box.Controls.Add(value_route_name);
+
+                        if (fileRead[line_index + 4] == "*end stop")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            line_index += 5;
+                        }
+                    }
+                    else if (value_company_code.Value == "GMB")
+                    {
+                        // remember the value
+                        string[] route_info = fileRead[line_index].Split(" , ");
+                        IntValue value_file_route_line_index = new IntValue
+                        {
+                            Value = line_index,
+                            Name = "value_file_line_index"
+                        };
+                        StringValue value_route_name = new StringValue
+                        {
+                            Value = route_info[0],
+                            Name = "value_route_name"
+                        };
+                        StringValue value_region = new StringValue
+                        {
+                            Value = route_info[1],
+                            Name = "value_region"
+                        };
+                        StringValue value_route_id = new StringValue
+                        {
+                            Value = route_info[2],
+                            Name = "value_route_id"
+                        };
+                        IntValue value_route_seq = new IntValue
+                        {
+                            Value = int.Parse(route_info[3]),
+                            Name = "value_route_seq"
+                        };
+                        string description_tc = fileRead[line_index + 1];
+                        string description_en = fileRead[line_index + 2];
+                        string dest_name_chi = fileRead[line_index + 3];
+                        string dest_name_eng = fileRead[line_index + 4];
+
+                        PictureBox icon = Label_bus_icon(value_company_code.Value, value_route_name.Value);
+                        Panel panel_route_box = Panel_route_box(icon, dest_name_chi, dest_name_eng);
+                        panel_bus_stop.Controls.Add(panel_route_box);
+
+                        panel_route_box.Controls.Add(value_file_route_line_index);
+                        panel_route_box.Controls.Add(value_route_name);
+                        panel_route_box.Controls.Add(value_region);
+                        panel_route_box.Controls.Add(value_route_id);
+                        panel_route_box.Controls.Add(value_route_seq);
+
+                        if (fileRead[line_index + 5] == "*end stop")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            line_index += 6;
+                        }
+                    } else if (value_company_code.Value == "NLB")
+                    {
+                        // remember the value
+                        string[] route_info = fileRead[line_index].Split(" , ");
+                        IntValue value_file_route_line_index = new IntValue
+                        {
+                            Value = line_index,
+                            Name = "value_file_line_index"
+                        };
+                        StringValue value_route_name = new StringValue
+                        {
+                            Value = route_info[0],
+                            Name = "value_route_name"
+                        };
+                        StringValue value_route_id = new StringValue
+                        {
+                            Value = route_info[1],
+                            Name = "value_route_id"
+                        };
+                        string dest_name_chi = fileRead[line_index + 1];
+                        string dest_name_eng = fileRead[line_index + 2];
+
+                        PictureBox icon = Label_bus_icon(value_company_code.Value, value_route_name.Value);
+                        Panel panel_route_box = Panel_route_box(icon, dest_name_chi, dest_name_eng);
+                        panel_bus_stop.Controls.Add(panel_route_box);
+
+                        panel_route_box.Controls.Add(value_file_route_line_index);
+                        panel_route_box.Controls.Add(value_route_name);
+                        panel_route_box.Controls.Add(value_route_id);
+
+                        if (fileRead[line_index + 3] == "*end stop")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            line_index += 4;
                         }
                     }
                 }
@@ -415,49 +627,54 @@ namespace Home_Bus_Mega
             // 
             // label_chi
             // 
-            Label label_chi = new Label();
-            label_chi.AutoSize = true;
-            label_chi.BackColor = App_Colors.Green;
-            label_chi.FlatStyle = FlatStyle.Flat;
-            label_chi.Font = new Font("微軟正黑體", 30F, FontStyle.Bold, GraphicsUnit.Point);
-            label_chi.ForeColor = App_Colors.Text_white;
-            label_chi.Location = new Point(90, 0);
-            label_chi.Margin = new Padding(0);
-            label_chi.Name = "label_chi";
-            label_chi.Size = new Size(222, 50);
-            label_chi.TabIndex = 0;
-            label_chi.Text = chi_name; //**
+            Label label_chi = new Label
+            {
+                AutoSize = true,
+                BackColor = App_Colors.Green,
+                FlatStyle = FlatStyle.Flat,
+                Font = new Font("微軟正黑體", 30F, FontStyle.Bold, GraphicsUnit.Point),
+                ForeColor = App_Colors.Text_white,
+                Location = new Point(90, 0),
+                Margin = new Padding(0),
+                Name = "label_chi",
+                Size = new Size(222, 50),
+                TabIndex = 0,
+                Text = chi_name //**
+            };
             // 
             // label_eng
             // 
-            Label label_eng = new Label();
-            label_eng.AutoSize = true;
-            label_eng.BackColor = App_Colors.Green;
-            label_eng.FlatStyle = FlatStyle.Flat;
-            label_eng.Font = new Font(ENG_FONT_NAME, 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label_eng.ForeColor = App_Colors.Text_white;
-            label_eng.Location = new Point(90, 50);
-            label_eng.Margin = new Padding(0);
-            label_eng.Name = "label_eng";
-            label_eng.Size = new Size(49, 24);
-            label_eng.TabIndex = 2;
-            label_eng.Text = eng_name; //**
-            label_eng.TextAlign = ContentAlignment.MiddleCenter;
+            Label label_eng = new Label
+            {
+                AutoSize = true,
+                BackColor = App_Colors.Green,
+                FlatStyle = FlatStyle.Flat,
+                Font = new Font(ENG_FONT_NAME, 14.25F, FontStyle.Bold, GraphicsUnit.Point),
+                ForeColor = App_Colors.Text_white,
+                Location = new Point(90, 50),
+                Margin = new Padding(0),
+                Name = "label_eng",
+                Size = new Size(49, 24),
+                TabIndex = 2,
+                Text = eng_name, //**
+                TextAlign = ContentAlignment.MiddleCenter
+            };
             // 
             // label_chi_2
             // 
-            Label label_chi_2 = new Label();
-            label_chi_2.AutoSize = true;
-            label_chi_2.BackColor = App_Colors.Green;
-            label_chi_2.FlatStyle = FlatStyle.Flat;
-            label_chi_2.Font = new Font("微軟正黑體", 30F, FontStyle.Bold, GraphicsUnit.Point);
-            label_chi_2.ForeColor = App_Colors.Text_white;
-            label_chi_2.Location = new Point(538, 0);
-            label_chi_2.Margin = new Padding(0);
-            label_chi_2.Name = "label_chi_2";
-            label_chi_2.Size = new Size(102, 50);
-            label_chi_2.TabIndex = 8;
-            label_chi_2.Text = "上車";
+            Label label_chi_2 = new Label {
+                AutoSize = true,
+                BackColor = App_Colors.Green,
+                FlatStyle = FlatStyle.Flat,
+                Font = new Font("微軟正黑體", 30F, FontStyle.Bold, GraphicsUnit.Point),
+                ForeColor = App_Colors.Text_white,
+                Location = new Point(538, 0),
+                Margin = new Padding(0),
+                Name = "label_chi_2",
+                Size = new Size(102, 50),
+                TabIndex = 8,
+                Text = "上車"
+            };
             //
             // label_eng_2
             // 
@@ -525,8 +742,8 @@ namespace Home_Bus_Mega
             flowLayoutPanel.Size = new Size(640, 571);
             flowLayoutPanel.TabIndex = 7;
             flowLayoutPanel.WrapContents = false;
-            //flowLayoutPanel.BackColor = App_Colors.Eta_bg;
-            flowLayoutPanel.BackColor = Color.Transparent;
+            flowLayoutPanel.BackColor = App_Colors.Eta_bg;
+            ScrollingInPanel.Add_Module(flowLayoutPanel);
             // 
             // panel1
             // 
@@ -608,30 +825,34 @@ namespace Home_Bus_Mega
             }
         }
 
-        private Panel Panel_route_box(PictureBox icon, string route_name, string dest_name_chi, string dest_name_eng, string service_type = null)
+        private Panel Panel_route_box(PictureBox icon, string dest_name_chi, string dest_name_eng)
         {
             // 
             // chi_name
             // 
-            Label label_chi_name = new Label();
-            label_chi_name.Font = new Font("微軟正黑體", 23.25F, FontStyle.Bold, GraphicsUnit.Point, 136);
-            label_chi_name.Location = new Point(118, 10);
-            label_chi_name.Name = "label_chi_name";
-            label_chi_name.Size = new Size(315, 39);
-            label_chi_name.Text = dest_name_chi; //**
-            label_chi_name.ForeColor = App_Colors.Text_blue;
-            label_chi_name.BackColor = Color.Transparent;
+            Label label_chi_name = new Label
+            {
+                Font = new Font("微軟正黑體", 23.25F, FontStyle.Bold, GraphicsUnit.Point, 136),
+                Location = new Point(118, 10),
+                Name = "label_chi_name",
+                Size = new Size(315, 39),
+                Text = dest_name_chi, //**
+                ForeColor = App_Colors.Text_blue,
+                BackColor = Color.Transparent,
+            };
             // 
             // eng_name
             // 
-            Label label_eng_name = new Label();
-            label_eng_name.Font = new Font(ENG_FONT_NAME, 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label_eng_name.Location = new Point(118, 50);
-            label_eng_name.Name = "eng_name";
-            label_eng_name.Size = new Size(315, 24);
-            label_eng_name.Text = dest_name_eng; //**
-            label_eng_name.ForeColor = App_Colors.Text_blue;
-            label_eng_name.BackColor = Color.Transparent;
+            Label label_eng_name = new Label
+            {
+                Font = new Font(ENG_FONT_NAME, 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0),
+                Location = new Point(118, 50),
+                Name = "eng_name",
+                Size = new Size(315, 24),
+                Text = dest_name_eng, //**
+                ForeColor = App_Colors.Text_blue,
+                BackColor = Color.Transparent,
+            };
             FitTheScreen.Resize_Label_Height(label_eng_name);
             //
             //ETA box
@@ -743,6 +964,147 @@ namespace Home_Bus_Mega
             return panel;
         }
 
+        private Panel Panel_route_box_LRT(PictureBox icon, string platform_id, string dest_name_chi, string dest_name_eng)
+        {
+            // 
+            // chi_name
+            // 
+            Label label_chi_name = new Label
+            {
+                Font = new Font("微軟正黑體", 23.25F, FontStyle.Bold, GraphicsUnit.Point, 136),
+                Location = new Point(118, 10),
+                Name = "label_chi_name",
+                Size = new Size(315 - 80, 39),
+                Text = dest_name_chi, //**
+                ForeColor = App_Colors.Text_blue,
+                BackColor = Color.Transparent,
+            };
+            // 
+            // eng_name
+            // 
+            Label label_eng_name = new Label
+            {
+                Font = new Font(ENG_FONT_NAME, 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0),
+                Location = new Point(118, 50),
+                Name = "eng_name",
+                Size = new Size(315 - 80, 24),
+                Text = dest_name_eng, //**
+                ForeColor = App_Colors.Text_blue,
+                BackColor = Color.Transparent,
+            };
+            FitTheScreen.Resize_Label_Height(label_eng_name);
+            PictureBox label_platform_id_bg = new PictureBox
+            {
+                Location = new Point(433 - 80, 5),
+                Name = "label_platform_id_bg",
+                Size = new Size(65, 65),
+                BackgroundImage = Image.FromFile($"{image_folder}LRT_platform_icon.png"),
+                BackgroundImageLayout = ImageLayout.Stretch,
+            };
+            Label label_platform_id = new Label
+            {
+                Font = new Font("Arial Narrow", 42.25F, FontStyle.Bold, GraphicsUnit.Point, 136),
+                TextAlign = ContentAlignment.MiddleCenter,
+                Location = new Point(0, 0),
+                Name = "label_platform_id",
+                Size = new Size(70, 70),
+                Text = platform_id, //**
+                ForeColor = App_Colors.Text_dark_blue,
+                BackColor = Color.Transparent
+            };
+            label_platform_id_bg.Controls.Add(label_platform_id);
+            //
+            //ETA box
+            //
+            Panel eta_panel = new Panel
+            {
+                Location = new Point(433, 0), //623 - 140 - 50
+                Name = "eta box", //**
+                Size = new Size(152, 70),
+                BackColor = Color.Transparent
+            };
+
+            Label label_eta_min_1 = new Label
+            {
+                Font = new Font("Arial Narrow", 42.25F, FontStyle.Bold, GraphicsUnit.Point, 136),
+                TextAlign = ContentAlignment.TopRight,
+                Location = new Point(-15, 0),
+                Name = "eta 1",
+                Size = new Size(80, 70),
+                Text = "88", //**
+                ForeColor = App_Colors.Text_blue,
+                BackColor = Color.Transparent,
+            };
+            eta_panel.Controls.Add(label_eta_min_1);
+
+            Label label_eta_min_1_chi = new Label
+            {
+                Font = new Font("微軟正黑體", 9.25F, FontStyle.Bold, GraphicsUnit.Point, 136),
+                TextAlign = ContentAlignment.TopLeft,
+                Location = new Point(47, 28),
+                Name = "eta 1 chi",
+                Size = new Size(25, 21),
+                Text = "分", //**
+                ForeColor = App_Colors.Text_blue,
+                BackColor = Color.Transparent,
+            };
+
+            Label label_eta_min_1_eng = new Label
+            {
+                Font = new Font("Arial Narrow", 9.25F, FontStyle.Bold, GraphicsUnit.Point, 136),
+                TextAlign = ContentAlignment.TopLeft,
+                Location = new Point(47, 43),
+                Name = "eta 1 eng",
+                Size = new Size(25, 21),
+                Text = "min", //**
+                ForeColor = App_Colors.Text_blue,
+                BackColor = Color.Transparent,
+            };
+            eta_panel.Controls.Add(label_eta_min_1_chi);
+            eta_panel.Controls.Add(label_eta_min_1_eng);
+            label_eta_min_1_chi.BringToFront();
+            label_eta_min_1_eng.BringToFront();
+
+            PictureBox label_car_1 = new PictureBox
+            {
+                Location = new Point(70, 0),
+                Name = "label_car_1",
+                Size = new Size(35, 70),
+                BackgroundImage = Image.FromFile($"{image_folder}LRV.png"),
+                BackgroundImageLayout = ImageLayout.Stretch,
+            };
+            PictureBox label_car_2 = new PictureBox
+            {
+                Location = new Point(105, 0),
+                Name = "label_car_2",
+                Size = new Size(35, 70),
+                BackgroundImage = Image.FromFile($"{image_folder}LRV.png"),
+                BackgroundImageLayout = ImageLayout.Stretch,
+            };
+            eta_panel.Controls.Add(label_car_1);
+            eta_panel.Controls.Add(label_car_2);
+            label_car_1.BringToFront();
+            label_car_2.BringToFront();
+            // 
+            // stop_box
+            // 
+            Panel panel = new Panel
+            {
+                Location = new Point(0, 0),
+                Name = "route box", //**
+                Size = new Size(623, 50 + (label_eng_name.Height < 24 ? 24 : label_eng_name.Height)),
+                BackColor = App_Colors.Eta_bg
+            };
+            panel.Controls.Add(label_eng_name);
+            panel.Controls.Add(icon);
+            panel.Controls.Add(label_chi_name);
+            panel.Controls.Add(label_platform_id_bg);
+            panel.Controls.Add(eta_panel);
+
+
+            return panel;
+        }
+
         public Panel Panel_ETA_Box_No_Route()
         {
             //
@@ -819,12 +1181,12 @@ namespace Home_Bus_Mega
                 TextAlign = ContentAlignment.TopLeft,
                 Location = new Point(0, 43),
                 Name = "eta 1 eng",
-                Size = new Size(25, 21),
+                Size = new Size(150, 21),
                 Text = eng_content, //**
-                AutoSize = true,
                 ForeColor = App_Colors.Text_blue,
                 BackColor = Color.Transparent,
             };
+            FitTheScreen.Resize_Label_Height(label_eng);
             eta_panel.Controls.Add(label_chi);
             eta_panel.Controls.Add(label_eng);
 

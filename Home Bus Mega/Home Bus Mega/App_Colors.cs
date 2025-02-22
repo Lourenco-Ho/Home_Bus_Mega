@@ -18,6 +18,7 @@ namespace Home_Bus_Mega
             Text_black = Color.Black,
             Text_white = Color.White,
             Text_blue = Color.FromArgb(23, 46, 179),
+            Text_dark_blue = Color.FromArgb(23, 20, 150),
 
             //Text bus icon
             Text_Bus = Color.FromArgb(255, 157, 45),
