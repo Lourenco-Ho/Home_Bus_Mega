@@ -49,10 +49,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="FitTheScreen.cs" />
+    <Compile Include="Http_Helper.cs" />
     <Compile Include="IntValue.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScrollingInPanel.cs" />
     <Compile Include="StringValue.cs">
       <SubType>Component</SubType>
     </Compile>

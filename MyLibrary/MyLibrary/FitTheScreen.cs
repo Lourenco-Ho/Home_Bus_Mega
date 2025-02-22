@@ -45,5 +45,18 @@ namespace MyLibrary
                 label.Font = new Font(label.Font.FontFamily, (float)Math.Round(Math.Round(label.Font.Size) * magnification_ratio, 2), label.Font.Style);
             }
         }
+
+
+        public static void Resize_Label_Height(Label label)
+        {
+            //get label's font and text
+            Font font = label.Font;
+            string text = label.Text;
+
+            //calculate label height
+            Size textSize = TextRenderer.MeasureText(text, font, new Size(label.Width, 0), TextFormatFlags.WordBreak);
+
+            label.Height = textSize.Height;
+        }
     }
 }
